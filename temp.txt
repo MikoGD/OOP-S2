@@ -1,0 +1,28 @@
+    float average = sum / ai.bufferSize();
+
+    float w = average * 1000;
+    lerpedw = lerp(lerpedw, w, 0.1f);
+    noStroke();
+    fill(map(average, 0, 1, 0, 255), 255, 255);
+    //ellipse(400, cy, w, w);
+    //ellipse(600, cy, lerpedw, lerpedw);
+
+
+
+    for (int i = 0; i < ai.bufferSize(); i++) {
+      stroke(map(i, 0, ai.bufferSize(), 0, 255), 255, 255);
+      line(i, cy, i, cy + ai.left.get(i) * cy);
+    }
+
+    circy += random(-20, 20);
+    lerpedcircley = lerp(lerpedcircley, circy, 0.1f);
+    // ellipse(100, circy, 50, 50);
+    // ellipse(200, lerpedcircley, 50, 50);
+
+    fft.window(FFT.HAMMING);
+    fft.forward(ai.left);
+
+    stroke(255);
+    for (int i = 0; i < fft.specSize(); i++) {
+      line(i, 0, i, fft.getBand(i) * 100);
+    }
