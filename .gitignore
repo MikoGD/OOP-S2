@@ -3,3 +3,5 @@ bin
 *.code-workspace
 
 .vscode
+
+*.txt
