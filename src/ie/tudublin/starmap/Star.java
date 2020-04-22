@@ -119,13 +119,11 @@ public class Star {
     // Draws the circles
     pa.stroke(255, 0, 0);
     pa.ellipse(x, y, absMag, absMag);
-    
+    // pa.ellipse(x, y, 10, 10);
+
     // Writes name
     pa.textAlign(PApplet.LEFT, PApplet.CENTER);
     pa.fill(255);
     pa.text(displayName, x + 50, y);
   }
-
-
-
 }
